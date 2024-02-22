@@ -11,117 +11,93 @@ import javax.persistence.Table;
  * Feb 22, 2024
  */
 @Entity
-@Table(name = "movies")
+@Table(name="movies")
 public class Movie {
-@Id
-@GeneratedValue
-private int movieID;
 
-private String movieTitle;
+	@Id
+	@GeneratedValue
+	private int movieId;
+	private String movieTitle;
+	private String movieGenre;
+	private int movieLength;
+	private double movieRating;
+	
+	public Movie() {
+		super();
+	}
 
-private String movieGenre; // Added this and additional constructor 
+	public Movie(String movieTitle) {
+		super();
+		this.movieTitle = movieTitle;
+	}
 
-private int movieLength;
+	public Movie(String movieTitle, int movieLength) {
+		super();
+		this.movieTitle = movieTitle;
+		this.movieLength = movieLength;
+	}
 
-private double movieRating;
+	public Movie(String movieTitle, String movieGenre, int movieLength) {
+		super();
+		this.movieTitle = movieTitle;
+		this.movieGenre = movieGenre;
+		this.movieLength = movieLength;
+	}
 
-/**
- * @return the movieID
- */
-public int getMovieID() {
-	return movieID;
-}
+	public Movie(String movieTitle, String movieGenre, int movieLength, double movieRating) {
+		super();
+		this.movieTitle = movieTitle;
+		this.movieGenre = movieGenre;
+		this.movieLength = movieLength;
+		this.movieRating = movieRating;
+	}
 
-/**
- * @param movieID the movieID to set
- */
-public void setMovieID(int movieID) {
-	this.movieID = movieID;
-}
+	public int getMovieId() {
+		return movieId;
+	}
 
-/**
- * @return the movieLength
- */
-public int getMovieLength() {
-	return movieLength;
-}
+	public void setMovieId(int movieId) {
+		this.movieId = movieId;
+	}
 
-/**
- * @param movieLength the movieLength to set
- */
-public void setMovieLength(int movieLength) {
-	this.movieLength = movieLength;
-}
+	public String getMovieTitle() {
+		return movieTitle;
+	}
 
-/**
- * @return the movieRating
- */
-public double getMovieRating() {
-	return movieRating;
-}
+	public void setMovieTitle(String movieTitle) {
+		this.movieTitle = movieTitle;
+	}
 
-/**
- * @param movieRating the movieRating to set
- */
-public void setMovieRating(double movieRating) {
-	this.movieRating = movieRating;
-}
+	public String getMovieGenre() {
+		return movieGenre;
+	}
 
-/**
- * @return the movieTitle
- */
-public String getMovieTitle() {
-	return movieTitle;
-}
+	public void setMovieGenre(String movieGenre) {
+		this.movieGenre = movieGenre;
+	}
 
-/**
- * @param movieTitle the movieTitle to set
- */
-public void setMovieTitle(String movieTitle) {
-	this.movieTitle = movieTitle;
-}
+	public int getMovieLength() {
+		return movieLength;
+	}
 
-public String getMovieGenre() {
-	return movieGenre;
-}
+	public void setMovieLength(int movieLength) {
+		this.movieLength = movieLength;
+	}
 
-/**
- * @param movieTitle the movieTitle to set
- */
-public void setMovieGenre(String movieGenre) {
-	this.movieGenre = movieGenre;
-}
+	public double getMovieRating() {
+		return movieRating;
+	}
 
+	public void setMovieRating(double movieRating) {
+		this.movieRating = movieRating;
+	}
 
-@Override
-public String toString() {
-	return "Movie [movieID=" + movieID + ", movieLength=" + movieLength + ", movieRating=" + movieRating + "]";
-}
-
-public Movie() {
-	super();
-}
-
-public Movie(String title) {
-	this.movieTitle = title;
-}
-
-public Movie(String title, int length) {
-	this.movieTitle = title;
-	this.movieLength = length;
-}
-
-public Movie(String title, int length, double rating) {
-	this.movieTitle = title;
-	this.movieLength = length;
-	this.movieRating = rating;
-}
-
-public Movie(String title, int length, double rating, String genre) {
-	this.movieTitle = title;
-	this.movieLength = length;
-	this.movieRating = rating;
-	this.movieGenre = genre;
-}
-
+	@Override
+	public String toString() {
+		return "Movie [movieId=" + movieId + ", movieTitle=" + movieTitle + ", movieGenre=" + movieGenre
+				+ ", movieLength=" + movieLength + ", movieRating=" + movieRating + "]";
+	}
+	
+	
+	
 }

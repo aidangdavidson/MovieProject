@@ -94,7 +94,7 @@ hs_err_pid*
 replay_pid*
 
 ### Maven ###
-persistence.xml
+*/persistence.xml
 target/
 pom.xml.tag
 pom.xml.releaseBackup

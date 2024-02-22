@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,129 +20,107 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "studios") // Table wasnt mentioned in project doc but I was not sure so I added this
 public class Studio {
-@Id
-@GeneratedValue
-private int studioID;
 
-private String studioName;
+	@Id
+	@GeneratedValue
+	private int studioId;
+	
+	private String studioName;
+	private LocalDate foundingDate;
+	
+	@ManyToOne(cascade=CascadeType.PERSIST)
+	private Movie movie;
+	
+	@OneToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+	@JoinTable
+	private List<Movie> listOfMovies;
+	
+	public Studio() {
+		super();
+	}
 
-private LocalDate foundingDate;
+	public Studio(String studioName) {
+		super();
+		this.studioName = studioName;
+	}
 
-// private Genre genreName -- Unsure if studio objects still need genre attribute
+	public Studio(int studioId, String studioName) {
+		super();
+		this.studioId = studioId;
+		this.studioName = studioName;
+	}
 
+	public Studio(int studioId, String studioName, LocalDate foundingDate) {
+		super();
+		this.studioId = studioId;
+		this.studioName = studioName;
+		this.foundingDate = foundingDate;
+	}
 
-@OneToMany(cascade = CascadeType.PERSIST, fetch=FetchType.EAGER) 
-@JoinTable
-private List<Movie> listOfMovies;
+	public Studio(int studioId, String studioName, LocalDate foundingDate, Movie movie) {
+		super();
+		this.studioId = studioId;
+		this.studioName = studioName;
+		this.foundingDate = foundingDate;
+		this.movie = movie;
+	}
 
-/**
- * @return the studioID
- */
-public int getStudioID() {
-	return studioID;
-}
+	public Studio(int studioId, String studioName, LocalDate foundingDate, Movie movie, List<Movie> listOfMovies) {
+		super();
+		this.studioId = studioId;
+		this.studioName = studioName;
+		this.foundingDate = foundingDate;
+		this.movie = movie;
+		this.listOfMovies = listOfMovies;
+	}
 
-/**
- * @param studioID the studioID to set
- */
-public void setStudioID(int studioID) {
-	this.studioID = studioID;
-}
+	public int getStudioId() {
+		return studioId;
+	}
 
-/**
- * @return the studioName
- */
-public String getStudioName() {
-	return studioName;
-}
+	public void setStudioId(int studioId) {
+		this.studioId = studioId;
+	}
 
-/**
- * @param studioName the studioName to set
- */
-public void setStudioName(String studioName) {
-	this.studioName = studioName;
-}
+	public String getStudioName() {
+		return studioName;
+	}
 
-/**
- * @return the foundingDate
- */
-public LocalDate getFoundingDate() {
-	return foundingDate;
-}
+	public void setStudioName(String studioName) {
+		this.studioName = studioName;
+	}
 
-/**
- * @param foundingDate the foundingDate to set
- */
-public void setFoundingDate(LocalDate foundingDate) {
-	this.foundingDate = foundingDate;
-}
+	public LocalDate getFoundingDate() {
+		return foundingDate;
+	}
 
-/**
- * @return the listOfMovies
- */
-public List<Movie> getListOfMovies() {
-	return listOfMovies;
-}
+	public void setFoundingDate(LocalDate foundingDate) {
+		this.foundingDate = foundingDate;
+	}
 
-/**
- * @param listOfMovies the listOfMovies to set
- */
-public void setListOfMovies(List<Movie> listOfMovies) {
-	this.listOfMovies = listOfMovies;
-}
+	public Movie getMovie() {
+		return movie;
+	}
 
-@Override
-public String toString() {
-	return "Studio [studioID=" + studioID + ", studioName=" + studioName + ", foundingDate=" + foundingDate
-			+ ", listOfMovies=" + listOfMovies + "]";
-}
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
 
-public Studio() {
-	super();
-}
+	public List<Movie> getListOfMovies() {
+		return listOfMovies;
+	}
 
-public Studio(String name) {
-	this.studioName = name;
-}
+	public void setListOfMovies(List<Movie> listOfMovies) {
+		this.listOfMovies = listOfMovies;
+	}
 
-public Studio(int studioID, String name) {
-	this.studioID = studioID;
-	this.studioName = name;
-}
-
-public Studio(int studioID, String name, LocalDate founded) {
-	this.studioID = studioID;
-	this.studioName = name;
-	this.foundingDate = founded;
-}
-
-/*
- * public Studio(int studioID, String name, LocalDate founded, String genreName) Again, not entirely sure about how we are including genre
- * { this.studioID = studioID; 
- * this.studioName = name; 
- * this.foundingDate = founded;
- *  this.genreName = genreName; 
- *  }
- */
-
-/*
- * public Studio(int studioID, String name, LocalDate founded, String genreName, List<Movie> movieList) Again, not entirely sure about how we are including genre
- * { this.studioID = studioID; 
- * this.studioName = name; 
- * this.foundingDate = founded;
- *  this.genreName = genreName; 
- *  this.listOfMovies = movieList;
- *  }
- */
-
-public Studio(int studioID, String name, LocalDate founded, List<Movie> movieList) {
-	this.studioID = studioID;
-	this.studioName = name;
-	this.foundingDate = founded;
-	this.listOfMovies = movieList;
-
-}
-
+	@Override
+	public String toString() {
+		return "Studio [studioId=" + studioId + ", studioName=" + studioName + ", foundingDate=" + foundingDate
+				+ ", movie=" + movie + ", listOfMovies=" + listOfMovies + "]";
+	}
+	
+	
+	
 }
