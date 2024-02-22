@@ -111,13 +111,13 @@ public Movie(String title, int length) {
 	this.movieLength = length;
 }
 
-public Movie(String title, int length, double rating) {
+public Movie(String title, String genre, int length) {
 	this.movieTitle = title;
 	this.movieLength = length;
-	this.movieRating = rating;
+	this.movieGenre = genre;
 }
 
-public Movie(String title, int length, double rating, String genre) {
+public Movie(String title, String genre, int length, double rating) {
 	this.movieTitle = title;
 	this.movieLength = length;
 	this.movieRating = rating;
