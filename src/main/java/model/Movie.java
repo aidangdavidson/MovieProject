@@ -19,7 +19,7 @@ private int movieID;
 
 private String movieTitle;
 
-private String movieGenre; // Added this and additional constructor 
+private String movieGenre;
 
 private int movieLength;
 
