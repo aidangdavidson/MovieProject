@@ -17,7 +17,7 @@ import model.MovieListDetails;
 
 public class ListDetailsHelper {
 
-static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("TempMovieProject");
+static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MovieProject");
 	
 	public void insertNewListDetails(MovieListDetails listdeets) {
 		

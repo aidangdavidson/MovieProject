@@ -16,7 +16,7 @@ import model.Movie;
 
 public class MovieHelper {
 
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("TempMovieProject");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MovieProject");
 	
 	public void addMovie (Movie movie) {
 		

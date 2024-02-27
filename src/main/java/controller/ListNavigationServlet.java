@@ -51,7 +51,7 @@ public class ListNavigationServlet extends HttpServlet {
 				
 				Integer tempId = Integer.parseInt(request.getParameter("listId"));
 				MovieListDetails listToEdit = dao.searchForMovieListDetailsById(tempId);
-				request.setAttribute("listToEdit", listToEdit);
+				request.setAttribute("listToUpdate", listToEdit);
 				
 				MovieHelper daoForMovies = new MovieHelper();
 				request.setAttribute("allMovies", daoForMovies.showAllMovies());
@@ -66,6 +66,7 @@ public class ListNavigationServlet extends HttpServlet {
 				
 			} catch (NumberFormatException ex) {
 				
+				System.out.println("Exception with edit");
 				getServletContext().getRequestDispatcher("/viewAllListsServlet").forward(request, response);
 				
 			}
@@ -79,6 +80,8 @@ public class ListNavigationServlet extends HttpServlet {
 				dao.deleteList(listToDelete);
 				
 			} catch (NumberFormatException ex) {
+				
+				System.out.println("Exception with delete");
 				
 			} finally {
 				

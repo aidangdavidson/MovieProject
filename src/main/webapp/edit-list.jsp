@@ -9,8 +9,8 @@
 </head>
 <body>
 	<form action= "editListDetailsServlet" method = "post">
-		<input type = "hidden" name = "id" value = "${listToEdit.listId }">
-		<b>Studio Name:</b> <input type = "text" name = "listName" value = "${listToEdit.listName }"><br />
+		<input type = "hidden" name = "listId" value = "${listToUpdate.listId }">
+		<b>Studio Name:</b> <input type = "text" name = "listName" value = "${listToUpdate.listName }"><br />
 		<b>Available Movies:</b><br />
 			<select name = "allMoviesToAdd" multiple size = "6">
 				<c:forEach items = "${requestScope.allMovies }" var = "currentMovie">

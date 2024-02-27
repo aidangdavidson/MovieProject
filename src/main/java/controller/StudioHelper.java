@@ -18,7 +18,7 @@ import model.Studio;
 
 public class StudioHelper {
 	
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("TempMovieProject");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("MovieProject");
 	
 	public void insertStudio(Studio studio) {
 		
