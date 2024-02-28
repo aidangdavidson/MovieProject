@@ -6,8 +6,62 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>List Of Movies By Studio</title>
+
+<style>
+	body{
+		font-family:Arial;
+		}
+	
+	.container {
+		max-width: 600px;
+		border-radius: 5px;
+		border-style: solid;
+		padding: 20px;
+		margin: 20px auto;
+		border-radius: 5px;
+	}
+	
+	.submitButton {
+		background-color: #1E90FF;
+  		border: none;
+	    color: white;
+	    padding: 15px;
+	    text-align: center;
+	    display: inline-block;
+	    font-size: 16px;
+	    cursor: pointer;
+	    border-radius: 4px;
+	}
+	
+	form input[type="submit"] {
+	    background-color: #1E90FF;
+	    border: none;
+	    color: white;
+	    padding: 15px;
+	    text-align: center;
+	    font-size: 16px;
+	    cursor: pointer;
+	    border-radius: 4px;
+	    text-transform: capitalize;
+	}
+	
+	.linkButton {
+		background-color: #1E90FF;
+	    border: none;
+	    color: white;
+	    padding: 15px;
+	    text-align: center;
+	    display: inline-block;
+	    font-size: 16px;
+	    cursor: pointer;
+	    border-radius: 4px;
+	    margin-top: 10px;
+	}
+	
+</style>
 </head>
 <body>
+<div class="container">
 	<form method = "post" action = "listNavigationServlet">
 		<table>
 			<c:forEach items = "${requestScope.allLists }" var = "currentList">
@@ -29,11 +83,12 @@
 				</c:forEach>
 			</c:forEach>
 		</table>
-			<input type = "submit" value = "edit" name = "doThisToList">
-			<input type = "submit" value = "delete" name = "doThisToList">
-			<input type = "submit" value = "add" name = "doThisToList">
+			<input type = "submit" value = "edit" name = "doThisToList" class="submitButton">
+			<input type = "submit" value = "delete" name = "doThisToList" class="submitButton">
+			<input type = "submit" value = "add" name = "doThisToList" class="submitButton">
 	</form>
-	<a href = "addMoviesForListServlet">Create a New List</a>
-	<a href = "index.jsp">Insert a New Movie</a>
+	<a href = "addMoviesForListServlet"><button class="linkButton">Create a New List</button></a>
+	<a href = "index.jsp"><button class="linkButton">Insert a New Movie</button></a>
+</div>
 </body>
 </html>
